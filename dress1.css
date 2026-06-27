@@ -221,3 +221,218 @@ border-radius:20px;
 box-shadow:0 10px 30px rgba(0,0,0,.08);
 
 }
+/* ==========================================
+   RESPONSIVE - DETAILS PAGE
+========================================== */
+
+/* Tablets */
+@media (max-width:992px){
+
+    .dress-details{
+        width:90%;
+        grid-template-columns:1fr;
+        gap:40px;
+        padding:30px 0 60px;
+    }
+
+    .gallery{
+        order:1;
+    }
+
+    .info{
+        order:2;
+        text-align:center;
+        align-items:center;
+    }
+
+    .main-image{
+        height:550px;
+    }
+
+    .thumbnails{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .thumbnails img{
+        width:100px;
+        height:120px;
+    }
+
+    .info h1{
+        font-size:42px;
+    }
+
+    .info h2{
+        font-size:32px;
+    }
+
+    .description{
+        max-width:650px;
+    }
+
+    .specs{
+        width:100%;
+    }
+
+    .order-btn{
+        width:100%;
+        max-width:350px;
+    }
+
+    .sketch-section{
+        width:90%;
+    }
+
+    .sketch-section h2{
+        font-size:36px;
+    }
+
+    .sketch-section img{
+        width:100%;
+        max-width:700px;
+    }
+
+}
+
+
+/* Mobile */
+@media (max-width:768px){
+
+    .details-header{
+        padding:20px;
+    }
+
+    .back-btn{
+        font-size:16px;
+    }
+
+    .dress-details{
+        width:95%;
+        gap:30px;
+    }
+
+    .main-image{
+        height:420px;
+    }
+
+    .thumbnails{
+        gap:10px;
+    }
+
+    .thumbnails img{
+        width:80px;
+        height:95px;
+    }
+
+    .info h1{
+        font-size:34px;
+        line-height:1.2;
+    }
+
+    .info h2{
+        font-size:28px;
+    }
+
+    .description{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+    .specs{
+        grid-template-columns:1fr;
+        gap:18px;
+        text-align:left;
+    }
+
+    .specs strong{
+        font-size:16px;
+    }
+
+    .order-btn{
+        width:100%;
+        padding:15px;
+        font-size:16px;
+    }
+
+    .sketch-section{
+        margin:50px auto;
+    }
+
+    .sketch-section h2{
+        font-size:30px;
+        margin-bottom:25px;
+    }
+
+}
+
+
+/* Small Phones */
+@media (max-width:480px){
+
+    .details-header{
+        padding:15px;
+    }
+
+    .back-btn{
+        font-size:15px;
+    }
+
+    .dress-details{
+        width:94%;
+    }
+
+    .main-image{
+        height:320px;
+        border-radius:15px;
+    }
+
+    .thumbnails{
+        justify-content:center;
+    }
+
+    .thumbnails img{
+        width:65px;
+        height:80px;
+        border-radius:10px;
+    }
+
+    .info h1{
+        font-size:28px;
+    }
+
+    .info h2{
+        font-size:24px;
+    }
+
+    .description{
+        font-size:15px;
+    }
+
+    .specs{
+        gap:15px;
+    }
+
+    .specs strong{
+        font-size:15px;
+    }
+
+    .specs p{
+        font-size:14px;
+    }
+
+    .order-btn{
+        width:100%;
+        font-size:15px;
+        padding:14px;
+    }
+
+    .sketch-section h2{
+        font-size:26px;
+    }
+
+    .sketch-section img{
+        border-radius:15px;
+    }
+
+}
