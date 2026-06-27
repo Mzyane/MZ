@@ -841,3 +841,300 @@ height:180px;
     background:#163126;
 
 }
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+/* Smooth scrolling */
+html{
+    scroll-behavior:smooth;
+}
+
+/* Prevent horizontal scrolling */
+html,
+body{
+    overflow-x:hidden;
+}
+
+/* Large Tablets */
+@media (max-width:1024px){
+
+    header{
+        padding:20px 5%;
+    }
+
+    nav{
+        gap:25px;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+        padding:60px 5%;
+        gap:50px;
+    }
+
+    .left{
+        padding-right:0;
+    }
+
+    h1{
+        font-size:58px;
+    }
+
+    .description{
+        max-width:100%;
+        margin:auto;
+        margin-bottom:35px;
+    }
+
+    .benefits{
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:35px;
+    }
+
+    .right{
+        height:auto;
+    }
+
+    .circle{
+        width:420px;
+        height:420px;
+    }
+
+    .model{
+        height:520px;
+    }
+
+    .card{
+        right:20px;
+        bottom:20px;
+    }
+
+    .products-section{
+        width:92%;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .newsletter{
+        flex-direction:column;
+        text-align:center;
+        gap:25px;
+    }
+
+}
+
+/* Tablets */
+@media (max-width:768px){
+
+    header{
+        flex-direction:column;
+        gap:20px;
+        padding:20px;
+    }
+
+    .logo span{
+        font-size:28px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    nav a{
+        font-size:15px;
+    }
+
+    .icons{
+        margin-top:10px;
+        gap:18px;
+    }
+
+    .hero{
+        padding:40px 20px;
+        min-height:auto;
+    }
+
+    h1{
+        font-size:46px;
+    }
+
+    .description{
+        font-size:17px;
+    }
+
+    .button{
+        padding:15px 30px;
+    }
+
+    .benefits{
+        flex-direction:column;
+        gap:25px;
+        margin-top:40px;
+    }
+
+    .circle{
+        width:340px;
+        height:340px;
+    }
+
+    .model{
+        height:430px;
+    }
+
+    .leaf{
+        display:none;
+    }
+
+    .card{
+        position:relative;
+        right:0;
+        bottom:0;
+        width:220px;
+        margin-top:20px;
+    }
+
+    .section-header{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
+
+    .section-header h2{
+        font-size:34px;
+    }
+
+    .product-grid{
+        grid-template-columns:1fr 1fr;
+        gap:20px;
+    }
+
+    .product-card img{
+        height:300px;
+    }
+
+    .product-buttons{
+        flex-direction:column;
+    }
+
+    .newsletter{
+        padding:30px 20px;
+    }
+
+    .newsletter-text{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .newsletter form{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .newsletter input,
+    .newsletter button{
+        width:100%;
+    }
+
+}
+
+/* Mobile Phones */
+@media (max-width:576px){
+
+    header{
+        padding:15px;
+    }
+
+    .logo img{
+        width:38px;
+    }
+
+    .logo span{
+        font-size:24px;
+    }
+
+    nav{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .icons{
+        font-size:18px;
+    }
+
+    .hero{
+        padding:30px 15px;
+    }
+
+    h1{
+        font-size:34px;
+        line-height:1.2;
+    }
+
+    .collection{
+        font-size:11px;
+    }
+
+    .description{
+        font-size:15px;
+    }
+
+    .button{
+        width:100%;
+        justify-content:center;
+    }
+
+    .circle{
+        width:260px;
+        height:260px;
+    }
+
+    .model{
+        height:320px;
+    }
+
+    .card{
+        width:100%;
+        max-width:260px;
+    }
+
+    .section-header h2{
+        font-size:28px;
+    }
+
+    .product-grid{
+        grid-template-columns:1fr;
+    }
+
+    .product-card img{
+        height:320px;
+    }
+
+    .product-info h3{
+        font-size:20px;
+    }
+
+    .price{
+        font-size:22px;
+    }
+
+    .details-btn,
+    .order-btn{
+        width:100%;
+    }
+
+    .newsletter h3{
+        font-size:24px;
+    }
+
+    .newsletter p{
+        font-size:14px;
+    }
+
+}
