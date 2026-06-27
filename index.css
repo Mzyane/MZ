@@ -1044,97 +1044,31 @@ body{
 
 }
 
-/* Mobile Phones */
-@media (max-width:576px){
+/* ===========================
+   MOBILE NAVIGATION
+=========================== */
 
-    header{
-        padding:15px;
-    }
-
-    .logo img{
-        width:38px;
-    }
-
-    .logo span{
-        font-size:24px;
-    }
+@media (max-width:768px){
 
     nav{
-        flex-direction:column;
-        gap:10px;
+        display:none;
+    }
+
+    header{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:20px;
+    }
+
+    .logo{
+        flex:1;
     }
 
     .icons{
-        font-size:18px;
-    }
-
-    .hero{
-        padding:30px 15px;
-    }
-
-    h1{
-        font-size:34px;
-        line-height:1.2;
-    }
-
-    .collection{
-        font-size:11px;
-    }
-
-    .description{
-        font-size:15px;
-    }
-
-    .button{
-        width:100%;
-        justify-content:center;
-    }
-
-    .circle{
-        width:260px;
-        height:260px;
-    }
-
-    .model{
-        height:320px;
-    }
-
-    .card{
-        width:100%;
-        max-width:260px;
-    }
-
-    .section-header h2{
-        font-size:28px;
-    }
-
-    .product-grid{
-        grid-template-columns:1fr;
-    }
-
-    .product-card img{
-        height:320px;
-    }
-
-    .product-info h3{
+        display:flex;
+        gap:18px;
         font-size:20px;
-    }
-
-    .price{
-        font-size:22px;
-    }
-
-    .details-btn,
-    .order-btn{
-        width:100%;
-    }
-
-    .newsletter h3{
-        font-size:24px;
-    }
-
-    .newsletter p{
-        font-size:14px;
     }
 
 }
