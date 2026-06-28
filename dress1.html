@@ -12,53 +12,51 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+<style>
+.language-toggle{
+    cursor:pointer;
+    font-size:22px;
+    color:#21473a;
+    transition:.3s;
+}
+.language-toggle:hover{
+    transform:scale(1.15);
+    color:#000;
+}
+</style>
+
 </head>
 
 <body>
 
 <header class="details-header">
 
-    <a href="index.html" class="back-btn">← Back to Collection</a>
+    <a href="index.html" class="back-btn" id="backBtn">← Back to Collection</a>
+
+    <div class="language-toggle" onclick="toggleLanguage()">
+        <i class="fa-solid fa-language"></i>
+    </div>
 
 </header>
 
 <section class="dress-details">
 
     <!-- LEFT SIDE -->
-
     <div class="gallery">
-
         <img src="images/dress1.png" class="main-image">
-
-        <div class="thumbnails">
-
-           <!-- <img src="images/dress1.png">
-
-            <img src="images/dress1.png">
-
-            <img src="images/dress1.png">
-
-            <img src="images/dress1.png">-->
-
-        </div>
-
     </div>
 
-
     <!-- RIGHT SIDE -->
-
     <div class="info">
 
-        <p class="collection">NEW COLLECTION</p>
+        <p class="collection" id="collectionText">NEW COLLECTION</p>
 
-        <h1>Silken Blossom Maxi Dress</h1>
+        <h1 id="dressTitle">Silken Blossom Maxi Dress</h1>
 
-        <h2>OMR 22.000</h2>
+        <h2 id="dressPrice">OMR 22.000</h2>
 
-        <p class="description">
-
+        <p class="description" id="dressDescription">
             A vision of refined elegance, this silk maxi dress features a soft cream base adorned with delicate golden floral motifs. The luxurious silk fabric drapes beautifully, complemented by a flattering V-neckline and long flared sleeves that add a touch of romantic charm. Perfect for weddings, Eid celebrations, evening gatherings, and special occasions.
-
         </p>
 
         <hr>
@@ -66,59 +64,93 @@
         <div class="specs">
 
             <div>
-
-                <strong>Fabric</strong>
-
-                <p>Pure Silk</p>
-
+                <strong id="fabricLabel">Fabric</strong>
+                <p id="fabricValue">Pure Silk</p>
             </div>
 
             <div>
-
-                <strong>Color</strong>
-
-                <p>Champagne Cream</p>
-
+                <strong id="colorLabel">Color</strong>
+                <p id="colorValue">Champagne Cream</p>
             </div>
 
             <div>
-
-                <strong>Sizes</strong>
-
-                <p>S • M • L</p>
-
+                <strong id="sizesLabel">Sizes</strong>
+                <p id="sizesValue">S • M • L</p>
             </div>
 
             <div>
-
-                <strong>Length</strong>
-
-                <p>Maxi</p>
-
+                <strong id="lengthLabel">Length</strong>
+                <p id="lengthValue">Maxi</p>
             </div>
 
         </div>
 
-        <a href="https://www.instagram.com/_bymznx?igsh=cDkzNm9mNzAwY29x&utm_source=qr"
-           class="order-btn">
-
+        <a href="https://www.instagram.com/_bymznx" class="order-btn" id="orderBtn">
            Order Now
-
         </a>
 
     </div>
 
 </section>
 
-<!--
-<section class="sketch-section">
+<script>
+let arabic = false;
 
-    <h2>Designer Sketch</h2>
+function toggleLanguage(){
+    arabic = !arabic;
 
-    <img src="images/dress11.png">
+    if(arabic){
+        document.documentElement.lang="ar";
+        document.body.dir="rtl";
 
-</section>-->
+        document.getElementById("backBtn").innerHTML="← العودة إلى المجموعة";
+        document.getElementById("collectionText").innerHTML="تشكيلة جديدة";
+        document.getElementById("dressTitle").innerHTML="فستان سيلكن بلوسوم";
+        document.getElementById("dressPrice").innerHTML="٢٢ ريال";
+        document.getElementById("dressDescription").innerHTML=
+        "رؤية من الأناقة الراقية، يتميز هذا الفستان الحريري بقاعدة كريمية ناعمة مزينة بزخارف ذهبية رقيقة. ينسدل القماش الفاخر بانسيابية، مع ياقة على شكل V وأكمام طويلة واسعة تضيف لمسة من السحر الرومانسي. مثالي للأعراس، احتفالات العيد، السهرات، والمناسبات الخاصة.";
+
+        document.getElementById("fabricLabel").innerHTML="القماش";
+        document.getElementById("fabricValue").innerHTML="حرير نقي";
+
+        document.getElementById("colorLabel").innerHTML="اللون";
+        document.getElementById("colorValue").innerHTML="كريمي شامبانيا";
+
+        document.getElementById("sizesLabel").innerHTML="المقاسات";
+        document.getElementById("sizesValue").innerHTML="ص • م • ل";
+
+        document.getElementById("lengthLabel").innerHTML="الطول";
+        document.getElementById("lengthValue").innerHTML="ماكسي";
+
+        document.getElementById("orderBtn").innerHTML="اطلب الآن";
+    }
+    else{
+        document.documentElement.lang="en";
+        document.body.dir="ltr";
+
+        document.getElementById("backBtn").innerHTML="← Back to Collection";
+        document.getElementById("collectionText").innerHTML="NEW COLLECTION";
+        document.getElementById("dressTitle").innerHTML="Silken Blossom Maxi Dress";
+        document.getElementById("dressPrice").innerHTML="OMR 22.000";
+        document.getElementById("dressDescription").innerHTML=
+        "A vision of refined elegance, this silk maxi dress features a soft cream base adorned with delicate golden floral motifs. The luxurious silk fabric drapes beautifully, complemented by a flattering V-neckline and long flared sleeves that add a touch of romantic charm. Perfect for weddings, Eid celebrations, evening gatherings, and special occasions.";
+
+        document.getElementById("fabricLabel").innerHTML="Fabric";
+        document.getElementById("fabricValue").innerHTML="Pure Silk";
+
+        document.getElementById("colorLabel").innerHTML="Color";
+        document.getElementById("colorValue").innerHTML="Champagne Cream";
+
+        document.getElementById("sizesLabel").innerHTML="Sizes";
+        document.getElementById("sizesValue").innerHTML="S • M • L";
+
+        document.getElementById("lengthLabel").innerHTML="Length";
+        document.getElementById("lengthValue").innerHTML="Maxi";
+
+        document.getElementById("orderBtn").innerHTML="Order Now";
+    }
+}
+</script>
 
 </body>
-
 </html>
