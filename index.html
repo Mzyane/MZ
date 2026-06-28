@@ -16,6 +16,19 @@
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
+<style>
+.language-toggle{
+    cursor:pointer;
+    font-size:22px;
+    color:#21473a;
+    transition:.3s;
+}
+.language-toggle:hover{
+    transform:scale(1.15);
+    color:#000;
+}
+</style>
+
 </head>
 
 <body>
@@ -23,31 +36,25 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 <header>
 
 <div class="logo">
-
 <img src="images/logo.png">
-
 <span>Mz</span>
-
 </div>
 
 <nav>
-
-<a href="#">Shop</a>
-<a href="#">Collections</a>
-<a href="#">New Arrivals</a>
-<a href="#">Deals</a>
-<a href="#">About</a>
-
+<a href="#" id="navShop">Shop</a>
+<a href="#" id="navCollections">Collections</a>
+<a href="#" id="navNew">New Arrivals</a>
+<a href="#" id="navDeals">Deals</a>
+<a href="#" id="navAbout">About</a>
 </nav>
 
 <div class="icons">
-
+<div class="language-toggle" onclick="toggleLanguage()">
+    <i class="fa-solid fa-language"></i>
+</div>
 <i class="fa-solid fa-magnifying-glass"></i>
-
 <i class="fa-regular fa-user"></i>
-
 <i class="fa-solid fa-bag-shopping"></i>
-
 </div>
 
 </header>
@@ -57,79 +64,40 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <div class="left">
 
-<p class="collection">
+<p class="collection" id="collectionText">NEW SEASON COLLECTION</p>
 
-NEW SEASON COLLECTION
-
-</p>
-
-<h1>
-
+<h1 id="heroTitle">
 Live Beautifully.<br>
-
 <span>Shop Effortlessly.</span>
-
 </h1>
 
-<p class="description">
-
+<p class="description" id="heroDescription">
 Curated styles, quality you love,
-
 delivered to your door.
-
 </p>
 
-<a href="#" class="button">
-
+<a href="#" class="button" id="shopButton">
 Shop Now
-
 <i class="fa-solid fa-arrow-right"></i>
-
 </a>
 
 <div class="benefits">
 
 <div>
-
 <div class="icon yellow">
-
 <i class="fa-solid fa-truck"></i>
-
 </div>
-
-<h4>Free Shipping</h4>
-
-<p>Orders over 50.OMR</p>
-
+<h4 id="shippingTitle">Free Shipping</h4>
+<p id="shippingText">Orders over 50 OMR</p>
 </div>
 
 <div>
-
 <div class="icon green">
-
 <i class="fa-solid fa-shield"></i>
-
 </div>
-
-<h4>Secure Payment</h4>
-
-<p>100% Protected</p>
-
+<h4 id="paymentTitle">Secure Payment</h4>
+<p id="paymentText">100% Protected</p>
 </div>
-
-<!--<div>
-
-<div class="icon pink">
-
-<i class="fa-solid fa-rotate-left"></i>
-
-</div>
-
-<h4>Easy Returns</h4>
-
-<p>15-day return</p>
-
-</div>-->
 
 </div>
 
@@ -139,178 +107,165 @@ Shop Now
 <div class="right">
 
 <div class="circle"></div>
-
 <div class="leaf leaf1"></div>
-
 <div class="leaf leaf2"></div>
 
 <img src="images/model.png" class="model">
 
 <div class="card">
-
 <img src="images/model.png">
-
-<h3>Silken Blossom Maxi Dress</h3>
-
-<p>OMR 25.00</p>
-
-<button>Add to Cart</button>
-
+<h3 id="cardProduct">Silken Blossom Maxi Dress</h3>
+<p id="cardPrice">OMR 25.00</p>
+<button id="cardButton">Add to Cart</button>
 </div>
 
 </div>
 
 </section>
+
 <section class="products-section">
 
     <div class="section-header">
-        <h2>New Arrivals</h2>
-        <a href="#">View All →</a>
+        <h2 id="arrivalTitle">New Arrivals</h2>
+        <a href="#" id="viewAll">View All →</a>
     </div>
 
     <div class="product-grid">
 
         <!-- Product 1 -->
         <div class="product-card">
-
             <img src="images/dress1.png" alt="Elegant Dress">
-
             <div class="product-info">
-
-                <h3>Silken Blossom Maxi Dress</h3>
-
-                <p class="price">OMR 22.000</p>
-
+                <h3 id="prod1Name">Silken Blossom Maxi Dress</h3>
+                <p class="price" id="prod1Price">OMR 22.000</p>
                 <div class="product-buttons">
-
-                    <a href="dress1.html" class="details-btn">
-                        More Details
-                    </a>
-
-                    <a href="https://www.instagram.com/_bymznx?igsh=cDkzNm9mNzAwY29x&utm_source=qr"
-                    class="order-btn">
-                        Order Now
-                    </a>
-
+                    <a href="dress1.html" class="details-btn" id="prod1Details">More Details</a>
+                    <a href="https://www.instagram.com/_bymznx" class="order-btn" id="prod1Order">Order Now</a>
                 </div>
-
             </div>
-
         </div>
 
         <!-- Product 2 -->
         <div class="product-card">
-
             <img src="images/dress2.png">
-
             <div class="product-info">
-
-                <h3>Rosé Bloom Silk Dress</h3>
-
-                <p class="price">OMR 22.000</p>
-
+                <h3 id="prod2Name">Rosé Bloom Silk Dress</h3>
+                <p class="price" id="prod2Price">OMR 22.000</p>
                 <div class="product-buttons">
-
-                    <a href="dress2.html" class="details-btn">
-                        More Details
-                    </a>
-
-                    <a href="https://www.instagram.com/_bymznx?igsh=cDkzNm9mNzAwY29x&utm_source=qr"
-                    class="order-btn">
-                        Order Now
-                    </a>
-
+                    <a href="dress2.html" class="details-btn" id="prod2Details">More Details</a>
+                    <a href="https://www.instagram.com/_bymznx" class="order-btn" id="prod2Order">Order Now</a>
                 </div>
-
             </div>
-
         </div>
 
         <!-- Product 3 -->
         <div class="product-card">
-
             <img src="images/dress3.png">
-
             <div class="product-info">
-
-                <h3>Mauve Serenity Silk‑Crape Gown</h3>
-
-                <p class="price">OMR 25.000</p>
-
+                <h3 id="prod3Name">Mauve Serenity Silk‑Crape Gown</h3>
+                <p class="price" id="prod3Price">OMR 25.000</p>
                 <div class="product-buttons">
-
-                    <a href="dress3.html" class="details-btn">
-                        More Details
-                    </a>
-
-                    <a href="https://www.instagram.com/_bymznx?igsh=cDkzNm9mNzAwY29x&utm_source=qr"
-                    class="order-btn">
-                        Order Now
-                    </a>
-
+                    <a href="dress3.html" class="details-btn" id="prod3Details">More Details</a>
+                    <a href="https://www.instagram.com/_bymznx" class="order-btn" id="prod3Order">Order Now</a>
                 </div>
-
             </div>
-
         </div>
-         <!-- Product 4 -->
+
+        <!-- Product 4 -->
         <div class="product-card">
-
             <img src="images/dress4.png">
-
             <div class="product-info">
-
-                <h3>Ivory Charm Crape Dress</h3>
-
-                <p class="price">OMR 25.000</p>
-
+                <h3 id="prod4Name">Ivory Charm Crape Dress</h3>
+                <p class="price" id="prod4Price">OMR 25.000</p>
                 <div class="product-buttons">
-
-                    <a href="dress4.html" class="details-btn">
-                        More Details
-                    </a>
-
-                    <a href="https://www.instagram.com/_bymznx?igsh=cDkzNm9mNzAwY29x&utm_source=qr"
-                    class="order-btn">
-                        Order Now
-                    </a>
-
+                    <a href="dress4.html" class="details-btn" id="prod4Details">More Details</a>
+                    <a href="https://www.instagram.com/_bymznx" class="order-btn" id="prod4Order">Order Now</a>
                 </div>
-
             </div>
-
         </div>
+
         <!-- Product 5 -->
         <div class="product-card">
-
             <img src="images/dress5.png">
-
             <div class="product-info">
-
-                <h3>Silken Charm Skirt</h3>
-
-                <p class="price">OMR 7.000</p>
-
+                <h3 id="prod5Name">Silken Charm Skirt</h3>
+                <p class="price" id="prod5Price">OMR 7.000</p>
                 <div class="product-buttons">
-
-                    <a href="dress5.html" class="details-btn">
-                        More Details
-                    </a>
-
-                    <a href="https://www.instagram.com/_bymznx?igsh=cDkzNm9mNzAwY29x&utm_source=qr"
-                    class="order-btn">
-                        Order Now
-                    </a>
-
+                    <a href="dress5.html" class="details-btn" id="prod5Details">More Details</a>
+                    <a href="https://www.instagram.com/_bymznx" class="order-btn" id="prod5Order">Order Now</a>
                 </div>
-
             </div>
-
         </div>
 
     </div>
 
 </section>
 
+<script>
+let arabic = false;
+
+function toggleLanguage(){
+    arabic = !arabic;
+
+    if(arabic){
+        document.documentElement.lang="ar";
+        document.body.dir="rtl";
+
+        document.getElementById("navShop").innerHTML="المتجر";
+        document.getElementById("navCollections").innerHTML="المجموعات";
+        document.getElementById("navNew").innerHTML="وصل حديثاً";
+        document.getElementById("navDeals").innerHTML="العروض";
+        document.getElementById("navAbout").innerHTML="من نحن";
+
+        document.getElementById("collectionText").innerHTML="تشكيلة الموسم الجديد";
+
+        document.getElementById("heroTitle").innerHTML=
+        "تألقي بأناقة.<br><span>تسوقي بكل سهولة.</span>";
+
+        document.getElementById("heroDescription").innerHTML=
+        "فساتين وتنانير مصممة بعناية لتمنحك الأناقة والرقي في كل مناسبة.";
+
+        document.getElementById("shopButton").innerHTML=
+        'تسوق الآن <i class="fa-solid fa-arrow-left"></i>';
+
+        document.getElementById("shippingTitle").innerHTML="شحن مجاني";
+        document.getElementById("shippingText").innerHTML="للطلبات فوق 50 ريال";
+
+        document.getElementById("paymentTitle").innerHTML="دفع آمن";
+        document.getElementById("paymentText").innerHTML="حماية 100%";
+
+        document.getElementById("arrivalTitle").innerHTML="وصل حديثاً";
+    }
+    else{
+        document.documentElement.lang="en";
+        document.body.dir="ltr";
+
+        document.getElementById("navShop").innerHTML="Shop";
+        document.getElementById("navCollections").innerHTML="Collections";
+        document.getElementById("navNew").innerHTML="New Arrivals";
+        document.getElementById("navDeals").innerHTML="Deals";
+        document.getElementById("navAbout").innerHTML="About";
+
+        document.getElementById("collectionText").innerHTML="NEW SEASON COLLECTION";
+
+        document.getElementById("heroTitle").innerHTML=
+        'Live Beautifully.<br><span>Shop Effortlessly.</span>';
+
+        document.getElementById("heroDescription").innerHTML=
+        "Curated styles, quality you love, delivered to your door.";
+
+        document.getElementById("shopButton").innerHTML=
+        'Shop Now <i class="fa-solid fa-arrow-right"></i>';
+
+        document.getElementById("shippingTitle").innerHTML="Free Shipping";
+        document.getElementById("shippingText").innerHTML="Orders over 50 OMR";
+
+        document.getElementById("paymentTitle").innerHTML="Secure Payment";
+        document.getElementById("paymentText").innerHTML="100% Protected";
+
+        document.getElementById("arrivalTitle").innerHTML="New Arrivals";
+    }
+}
+</script>
 </body>
 </html>
