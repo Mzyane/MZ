@@ -9,17 +9,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* CSS VARIABLES & THEMING */
+        /* CSS VARIABLES & THEMING (Retrieved from the Community Service logo) */
         :root {
-            --primary: #1A365D;      /* Professional Deep Navy */
-            --accent: #2563EB;       /* Vibrant Electric Blue */
-            --accent-hover: #1D4ED8;
-            --gold: #D97706;         /* Highlight/Tag Accent */
-            --bg-light: #F8FAFC;
+            /* Logo Palette */
+            --primary: #F97316;       /* Vibrant Orange (Center symbol) */
+            --accent: #D97706;        /* Golden Orange (Top hand outline) */
+            --accent-hover: #C2410C;  /* Deeper Burnt Orange (Bottom hand outline) */
+            --highlight: #FB923C;     /* Lighter Highlight Orange */
+            --gradient: linear-gradient(135deg, #F97316 0%, #D97706 100%);
+            
+            /* Text & Neutrals (Adapted for contrast against light) */
+            --text-main: #1C1917;     /* Dark Stone for better readability than pure black */
+            --text-muted: #57534E;    /* Muted Stone for descriptions */
+            --bg-light: #FFFCF9;      /* Very faint orange tint on white background for warmth */
             --surface: #FFFFFF;
-            --text-main: #0F172A;
-            --text-muted: #64748B;
-            --border: #E2E8F0;
+            --border: #E7E5E4;
+            
+            /* Buttons & Tags (Using the red/orange from bottom hand) */
+            --btn-ig-bg: #FFF1F2;     /* Faint pink/red background */
+            --btn-ig-text: #E11D48;   /* Rose Red for Instagram button */
+            --tag-bg: #FFEDD5;        /* Light orange background for tags */
+            --tag-text: #9A3412;      /* Burnt Orange text for tags */
+
             --radius-lg: 20px;
             --radius-md: 12px;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -31,20 +42,7 @@
             padding: 0;
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
-.brand-logos {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    max-height: 50px; /* Limits the max height of the brand area */
-}
 
-.header-logo {
-    height: 40px;        /* Forces a clean, fixed height */
-    width: auto;         /* Automatically keeps the correct proportions */
-    max-width: 150px;    /* Prevents wide logos from stretching across the screen */
-    object-fit: contain; /* Ensures the logo isn't squished or stretched */
-    display: block;
-}
         body {
             background-color: var(--bg-light);
             color: var(--text-main);
@@ -56,7 +54,7 @@
         header {
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             z-index: 100;
@@ -75,26 +73,15 @@
             display: flex;
             align-items: center;
             gap: 1.25rem;
+            max-height: 50px;
         }
 
-        /* Placeholder styles for primary entity logos */
-        .logo-box {
-            height: 48px;
-            padding: 0 12px;
-            background: #EDF2F7;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.85rem;
-            color: var(--primary);
-            border: 1px dashed #CBD5E1;
-        }
-
-        .logo-box img {
-            max-height: 100%;
+        .header-logo {
+            height: 40px;
+            width: auto;
+            max-width: 150px;
             object-fit: contain;
+            display: block;
         }
 
         .divider {
@@ -116,8 +103,8 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(37, 99, 235, 0.1);
-            color: var(--accent);
+            background: #FFF1F2; /* Adapted color from bottom hand */
+            color: #E11D48;      /* Adaptive for contrast against light */
             padding: 0.5rem 1.25rem;
             border-radius: 50px;
             font-weight: 700;
@@ -130,7 +117,7 @@
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: -0.02em;
-            color: var(--primary);
+            color: #1C1917; /* Dark stone */
             margin-bottom: 1.25rem;
         }
 
@@ -174,8 +161,9 @@
         }
 
         .filter-btn.active, .filter-btn:hover {
-            background-color: var(--primary);
+            background: var(--gradient);
             color: white;
+            box-shadow: 0 4px 10px rgba(249, 115, 22, 0.2);
         }
 
         /* BUSINESS GRID */
@@ -210,13 +198,14 @@
 
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 20px 30px -10px rgba(249, 115, 22, 0.1);
+            border-color: var(--highlight);
         }
 
         .card-header {
             position: relative;
             height: 180px;
-            background: #F1F5F9;
+            background: #FFFAF5; /* Extremely light orange tint for contrast */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -224,29 +213,28 @@
         }
 
         /* Card Logo Image Formatting */
-.business-logo-img {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: white;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-    object-fit: contain;
-    padding: 6px;
-    border: 1px solid var(--border);
-}
+        .business-logo-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            object-fit: contain;
+            padding: 6px;
+            border: 1px solid var(--border);
+        }
 
         .category-tag {
             position: absolute;
             top: 1rem;
             right: 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(4px);
+            background: var(--tag-bg);
+            color: var(--tag-text);
             padding: 0.25rem 0.75rem;
             border-radius: 50px;
             font-size: 0.75rem;
             font-weight: 700;
-            color: var(--text-main);
-            border: 1px solid var(--border);
+            border: 1px solid rgba(154, 52, 18, 0.1);
         }
 
         .card-body {
@@ -260,12 +248,13 @@
             font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            color: #1C1917;
         }
 
         .discount-badge {
             display: inline-block;
-            background: #FEF3C7;
-            color: var(--gold);
+            background: #FFEDD5; /* Same as tag-bg for consistency */
+            color: var(--tag-text);  /* Same as tag-text */
             font-weight: 800;
             font-size: 1.1rem;
             padding: 0.25rem 0.75rem;
@@ -299,26 +288,29 @@
         }
 
         .btn-primary {
-            background-color: var(--accent);
+            background: var(--gradient);
             color: white;
             flex-grow: 1;
         }
 
         .btn-primary:hover {
-            background-color: var(--accent-hover);
+            box-shadow: 0 4px 10px rgba(249, 115, 22, 0.2);
+            background: linear-gradient(135deg, #C2410C 0%, #B45309 100%); /* Slightly darker gradient for hover */
         }
 
         .btn-instagram {
-            background-color: #FDF2F8;
-            color: #DB2777;
+            background-color: var(--btn-ig-bg);
+            color: var(--btn-ig-text);
             width: 42px;
             height: 42px;
             padding: 0;
             border-radius: var(--radius-md);
+            border: 1px solid rgba(225, 29, 72, 0.1);
         }
 
         .btn-instagram:hover {
-            background-color: #FCE7F3;
+            background-color: #FECDD3; /* Lighter pink on hover */
+            color: #C2123C;
         }
 
         /* MODAL */
@@ -328,7 +320,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(28, 25, 23, 0.6); /* Stone colored overlay */
             backdrop-filter: blur(4px);
             z-index: 1000;
             display: flex;
@@ -353,7 +345,7 @@
             position: relative;
             transform: scale(0.9);
             transition: var(--transition);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
         }
 
         .modal-overlay.active .modal-card {
@@ -364,27 +356,34 @@
             position: absolute;
             top: 1.25rem;
             right: 1.25rem;
-            background: var(--bg-light);
-            border: none;
+            background: #FFFFAF; /* extremely pale yellow */
+            border: 1px solid var(--border);
             width: 32px;
             height: 32px;
             border-radius: 50%;
             cursor: pointer;
             color: var(--text-muted);
         }
+        
+        .close-modal:hover {
+            background-color: #FACC15; /* Yellow hover from logo hand */
+            color: white;
+            border-color: #FACC15;
+        }
 
         .modal-terms {
             margin-top: 1rem;
             padding: 1rem;
-            background: var(--bg-light);
+            background: #FFF1F2; /* Light red/pink background */
             border-radius: var(--radius-md);
             font-size: 0.875rem;
-            color: var(--text-muted);
+            color: #9F1239; /* Dark rose red text */
+            border: 1px solid rgba(225, 29, 72, 0.1);
         }
 
         /* FOOTER */
         footer {
-            background: var(--primary);
+            background: #1C1917; /* Dark stone, not blue */
             color: white;
             padding: 3rem 2rem;
             text-align: center;
@@ -401,11 +400,12 @@
    <header>
     <div class="nav-container">
         <div class="brand-logos">
+            <!-- Ensure these logo filenames are correct -->
             <img src="GUtech_logo.png" alt="GUTech Logo" class="header-logo">
             <div class="divider"></div>
             <img src="csc-logo.png" alt="Community Service Club Logo" class="header-logo">
         </div>
-        <span style="font-weight: 700; font-size: 0.85rem; color: var(--accent); background: #EFF6FF; padding: 4px 12px; border-radius: 20px;">
+        <span style="font-weight: 700; font-size: 0.85rem; color: #E11D48; background: #FFF1F2; padding: 4px 12px; border-radius: 20px;">
             Semester Perks
         </span>
     </div>
@@ -432,20 +432,22 @@
 
     <main class="offers-section">
         <div class="grid" id="business-grid">
-            </div>
+            <!-- Content will be generated by JavaScript -->
+        </div>
     </main>
 
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal-card">
             <button class="close-modal" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
             <div class="discount-badge" id="modal-discount">20% OFF</div>
-            <h2 id="modal-title" style="margin-bottom: 0.5rem; color: var(--primary);">Business Name</h2>
+            <h2 id="modal-title" style="margin-bottom: 0.5rem; color: #1C1917;">Business Name</h2>
             <p id="modal-desc" style="color: var(--text-muted); font-size: 0.95rem;">Full offer description goes here.</p>
             
             <div class="modal-terms">
                 <strong><i class="fa-solid fa-circle-info"></i> Terms & Conditions:</strong>
                 <ul id="modal-terms-list" style="margin-top: 0.5rem; padding-left: 1.25rem;">
-                    </ul>
+                    <!-- Terms will be added by JavaScript -->
+                </ul>
             </div>
         </div>
     </div>
@@ -455,9 +457,8 @@
     </footer>
 
     <script>
-        // Sample Data Structure (Replace or update with full data tomorrow)
-       // Updated Business Data with Provided Logos & Links
-const businessData = [
+        // Updated Business Data with Provided Logos & Links
+        const businessData = [
             {
                 id: 1,
                 name: "La Vie Beauty Salon",
@@ -519,7 +520,7 @@ const businessData = [
                 category: "fashion",
                 categoryLabel: "Fashion & Apparel",
                 discount: "Exclusive Offer",
-                logoImg: "mamitoo-logo.jpeg",
+                logoImg: "mamitoo-logo.png",
                 instagram: "https://www.instagram.com/mamitoo.om?igsi=ajFrbXl6ZWowcmUz",
                 description: "Stylish apparel and contemporary clothing collection.",
                 terms: ["Must present valid GUTech ID"]
@@ -545,378 +546,37 @@ const businessData = [
                 instagram: "https://www.instagram.com/doganza?igsi=MTVxNmExMXMyd2Zmbw==",
                 description: "Gourmet burgers, hotdogs, and quick bites.",
                 terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 9,
-                name: "Dress Me",
-                category: "fashion",
-                categoryLabel: "Fashion & Abayas",
-                discount: "OMR 2 OFF",
-                logoImg: "dressme-logo.png",
-                instagram: "https://www.instagram.com/dressme.om?igsi=MWo4bzAwazNvM2dkMw==",
-                description: "Enjoy OMR 2 off every abaya.",
-                terms: ["Must present valid GUTech ID", "Discount applies per abaya"]
-            },
-            {
-                id: 10,
-                name: "Hint Oman",
-                category: "cafes",
-                categoryLabel: "Cafes & Dining",
-                discount: "500 Baisa OFF",
-                logoImg: "hint-logo.jpeg",
-                instagram: "https://www.instagram.com/hint_oman?igsi=MTg3OWQ4bHU5NTl6ag==",
-                description: "Enjoy 500 Baisa off every box of chocolates.",
-                terms: ["Must present valid GUTech ID", "Applies to chocolate boxes"]
-            },
-            {
-                id: 11,
-                name: "Film Cafe",
-                category: "cafes",
-                categoryLabel: "Cafes & Dining",
-                discount: "15% OFF",
-                logoImg: "filmcafe-logo.png",
-                instagram: "https://www.instagram.com/filmcafe.om?igsi=MXU5dzRpZWhpeG96bA==",
-                description: "Specialty coffee and cafe drinks with cinematic vibes.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 12,
-                name: "Lava Gym",
-                category: "fitness",
-                categoryLabel: "Fitness & Wellness",
-                discount: "Special Rates",
-                logoImg: "lavagym-logo.jpeg",
-                instagram: "https://www.instagram.com/lava_gym.om?igsi=MTF5bW1oZG50djRhMw==",
-                description: "Students: OMR 16/month | Staff: OMR 18/month. Includes unlimited access, gym classes, and all machines.",
-                terms: ["Must present valid GUTech ID", "Applies to monthly subscriptions"]
-            },
-            {
-                id: 13,
-                name: "Noirea Line",
-                category: "fashion",
-                categoryLabel: "Fashion & Abayas",
-                discount: "OMR 4 OFF",
-                logoImg: "noirea-logo.jpeg",
-                instagram: "https://www.instagram.com/noirea._line?igsi=cjBxdHdpdGVrc3l3",
-                description: "OMR 4 off every abaya.",
-                terms: ["Must present valid GUTech ID", "Applies to each abaya purchased"]
-            },
-            {
-                id: 14,
-                name: "Athera",
-                category: "fitness",
-                categoryLabel: "Fitness & Beauty",
-                discount: "15% OFF & Free Drinks",
-                logoImg: "athera-logo.png",
-                instagram: "https://www.instagram.com/athera.om?igsi=MWpncW9kZnppc3l0ZQ==",
-                description: "15% off Reformer, Aerial & Mat Pilates, 15% off Hair, Nails, Massage & Facial Services. Healthy Bar stamp card: 10th drink is FREE!",
-                terms: ["Must present valid GUTech ID", "Stamp card valid at Healthy Bar"]
-            },
-            {
-                id: 15,
-                name: "Areej Line",
-                category: "fashion",
-                categoryLabel: "Fashion & Abayas",
-                discount: "15% OFF",
-                logoImg: "areej-logo.jpeg",
-                instagram: "https://www.instagram.com/areej__line?igsi=cWY3dDY0ZDRnbmls",
-                description: "Exclusive collection of abayas and women's fashion.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 16,
-                name: "Tasha Beauty Salon",
-                category: "beauty",
-                categoryLabel: "Beauty & Spa",
-                discount: "20% OFF",
-                logoImg: "tasha-logo.png",
-                instagram: "https://www.instagram.com/tasha.beautysalon?igsi=Zmo4NWUxbGU0dnI5",
-                description: "Professional hair styling, nail care, and beauty treatments.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 17,
-                name: "MA Luxury",
-                category: "fashion",
-                categoryLabel: "Fashion & Abayas",
-                discount: "OMR 1 OFF",
-                logoImg: "maluxury-logo.jpeg",
-                instagram: "https://www.instagram.com/ma.luxury.om?igsi=aGRhZnd2ZDBnc3Zl",
-                description: "OMR 1 off every abaya.",
-                terms: ["Must present valid GUTech ID", "Applies per item"]
-            },
-            {
-                id: 18,
-                name: "Le Cloaks",
-                category: "fashion",
-                categoryLabel: "Fashion & Abayas",
-                discount: "10% OFF",
-                logoImg: "lecloaks-logo.jpeg",
-                instagram: "https://www.instagram.com/lecloaks?igsi=OTd0bTR5cWR4empv",
-                description: "Contemporary cloaks and modern abaya designs.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 19,
-                name: "Meem Spa",
-                category: "beauty",
-                categoryLabel: "Beauty & Spa",
-                discount: "Up to 40% OFF",
-                logoImg: "meemspa-logo.jpeg",
-                instagram: "https://www.instagram.com/meem_.spa?igsi=MW9vem14NHVhOHY3MA==",
-                description: "25% off services under OMR 25, 40% off services over OMR 25, and 10% off selected salon products.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 20,
-                name: "Miznar Abaya",
-                category: "fashion",
-                categoryLabel: "Fashion & Abayas",
-                discount: "OMR 3 OFF",
-                logoImg: "miznar-logo.jpeg",
-                instagram: "https://www.instagram.com/miznar_abaya?igsi=cGR3b2t1ZnRpZHM5",
-                description: "OMR 3 off every abaya.",
-                terms: ["Must present valid GUTech ID", "Applies per abaya"]
-            },
-            {
-                id: 21,
-                name: "AH Line",
-                category: "fashion",
-                categoryLabel: "Fashion & Abayas",
-                discount: "15% OFF",
-                logoImg: "ahline-logo.jpeg",
-                instagram: "https://www.instagram.com/ah___line?igsi=dWYyc3gycXJyam93",
-                description: "Stylish tailored abayas and fashion pieces.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 22,
-                name: "Zona Spa",
-                category: "beauty",
-                categoryLabel: "Beauty & Spa",
-                discount: "25% OFF",
-                logoImg: "zonaspa-logo.jpeg",
-                instagram: "https://www.instagram.com/zonaspa.oman?igsi=MWQ3bXVjd3RkZW1wYQ==",
-                description: "Relaxing massage, body treatments, and spa services.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 23,
-                name: "Kair Salon",
-                category: "beauty",
-                categoryLabel: "Beauty & Spa",
-                discount: "10% OFF",
-                logoImg: "kair-logo.jpeg",
-                instagram: "https://www.instagram.com/kair.salon?igsi=MW83d3dza3Bic2Fndg==",
-                description: "Specialized haircare and styling services.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 24,
-                name: "Rif3a Collection",
-                category: "fashion",
-                categoryLabel: "Fashion & Abayas",
-                discount: "OMR 3 OFF + Free Delivery",
-                logoImg: "rif3a-logo.png",
-                instagram: "https://www.instagram.com/rif3a_collection?igsi=MTkzNDNicXY1dGNsNw==",
-                description: "OMR 3 off every abaya plus FREE delivery for up to 3 abayas anywhere in Oman!",
-                terms: ["Must present valid GUTech ID", "Free delivery capped at 3 abayas"]
-            },
-            {
-                id: 25,
-                name: "SHS Design",
-                category: "fashion",
-                categoryLabel: "Fashion & Abayas",
-                discount: "OMR 2 OFF",
-                logoImg: "shsdesign-logo.jpeg",
-                instagram: "https://www.instagram.com/_shsdesign?igsi=dGNwcmR4NGZ4ZXZ0",
-                description: "OMR 2 off every abaya.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 26,
-                name: "MF Line",
-                category: "fashion",
-                categoryLabel: "Fashion & Abayas",
-                discount: "10% OFF",
-                logoImg: "mfline-logo.jpeg",
-                instagram: "https://www.instagram.com/mflinee?igsi=YnR5NmRqdTc5cDB1",
-                description: "Modern and traditional abaya collections.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 27,
-                name: "Seera Collection",
-                category: "fashion",
-                categoryLabel: "Fashion & Abayas",
-                discount: "OMR 2 OFF",
-                logoImg: "seera-logo.jpeg",
-                instagram: "https://www.instagram.com/seera.collection_?igsi=cDE2anZpam9xYmx1",
-                description: "OMR 2 off every abaya.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 28,
-                name: "Loni Abaya",
-                category: "fashion",
-                categoryLabel: "Fashion & Abayas",
-                discount: "OMR 3 OFF",
-                logoImg: "loni-logo.jpeg",
-                instagram: "https://www.instagram.com/loni.abaya?igsi=MXFpN2cya3Rmcmhpbw==",
-                description: "OMR 3 off every abaya.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 29,
-                name: "Ever Cafe",
-                category: "cafes",
-                categoryLabel: "Cafes & Dining",
-                discount: "15% OFF",
-                logoImg: "evercafe-logo.png",
-                instagram: "https://www.instagram.com/evercafe.oman?igsi=bjA4cnNwNGJxcXo3",
-                description: "15% discount — Bawshar branch only.",
-                terms: ["Must present valid GUTech ID", "Valid at Bawshar branch only"]
-            },
-            {
-                id: 30,
-                name: "The Beauty Co.",
-                category: "beauty",
-                categoryLabel: "Beauty & Spa",
-                discount: "15% OFF",
-                logoImg: "beautyco-logo.jpeg",
-                instagram: "https://www.instagram.com/thebeautyco.om?igsi=MWU1aHF0MTB2NGVwaA==",
-                description: "Luxury beauty, nails, and skincare treatments.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 31,
-                name: "Berrlla",
-                category: "fashion",
-                categoryLabel: "Fashion & Apparel",
-                discount: "10% OFF",
-                logoImg: "berrlla-logo.jpeg",
-                instagram: "https://www.instagram.com/berrlla.om?igsi=MTJvaDh0ZDZ0cHF4dA==",
-                description: "Trendy apparel and women's fashion.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 32,
-                name: "Mao Ice",
-                category: "cafes",
-                categoryLabel: "Cafes & Dining",
-                discount: "25% OFF",
-                logoImg: "maoice-logo.png",
-                instagram: "https://www.instagram.com/maoice25?igsi=anpnZWlxbWljZDI1",
-                description: "Refreshing ice creams, drinks, and desserts.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 33,
-                name: "Rolisa Abaya",
-                category: "fashion",
-                categoryLabel: "Fashion & Abayas",
-                discount: "15% OFF",
-                logoImg: "rolisa-logo.jpeg",
-                instagram: "https://www.instagram.com/rolisaabaya?igsi=MWdid29pdWV2bGE5Ng==",
-                description: "Elegant tailored abayas for all occasions.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 34,
-                name: "Aseen Line",
-                category: "fashion",
-                categoryLabel: "Fashion & Abayas",
-                discount: "OMR 2 OFF",
-                logoImg: "aseen-logo.jpeg",
-                instagram: "https://www.instagram.com/aseenline?igsi=dG0wdHE4dnV5YXNk",
-                description: "OMR 2 off every abaya.",
-                terms: ["Must present valid GUTech ID"]
-            },
-            {
-                id: 35,
-                name: "Cheezy Cake",
-                category: "cafes",
-                categoryLabel: "Cafes & Dining",
-                discount: "15% OFF",
-                logoImg: "cheezycake-logo.jpeg",
-                instagram: "https://www.instagram.com/cheezycake_om?igsi=MTQwMTdwczN4dHgxMg==",
-                description: "15% off your order. University delivery available for OMR 1.",
-                terms: ["Must present valid GUTech ID", "Delivery fee OMR 1 for campus"]
-            },
-            {
-                id: 36,
-                name: "Aljawhara Cosmetics",
-                category: "beauty",
-                categoryLabel: "Beauty & Cosmetics",
-                discount: "15% OFF",
-                logoImg: "aljawhara-logo.jpeg",
-                instagram: "https://www.instagram.com/aljawhara.cosmetics?igsi=NXljNnNtYzg3NWZ5",
-                description: "15% off total order. Use promo code: AUG24. Shop online or via WhatsApp: 71102345.",
-                terms: ["Must use promo code: AUG24", "Valid online and WhatsApp orders"]
-            },
-            {
-                id: 37,
-                name: "RK Line",
-                category: "fashion",
-                categoryLabel: "Fashion & Abayas",
-                discount: "OMR 2 OFF",
-                logoImg: "rkline-logo.jpeg",
-                instagram: "https://www.instagram.com/rk__line?igsi=YXExbXg1d2x2N2hq",
-                description: "Enjoy 2 OMR OFF on every abaya available at the store!",
-                terms: ["Must present valid GUTech ID", "Valid on all store abayas"]
-            },
-            {
-                id: 38,
-                name: "Azal Collection",
-                category: "lifestyle",
-                categoryLabel: "Lifestyle & Perfumes",
-                discount: "Special Perfume Deal",
-                logoImg: "azal-logo.jpeg",
-                instagram: "https://www.instagram.com/azal.colllection?igsi=MWN4amttamtnczE0cw==",
-                description: "Perfumes originally priced at OMR 12 are now OMR 10, and perfumes priced at OMR 14 are now OMR 12.",
-                terms: ["Exclusive price for GUTech students & staff"]
-            },
-            {
-                id: 39,
-                name: "Lubn",
-                category: "cafes",
-                categoryLabel: "Cafes & Dining",
-                discount: "20% OFF",
-                logoImg: "lubn-logo.jpeg",
-                instagram: "https://www.instagram.com/lubn.om?igsi=MXVreHFkMmd6MnV6bg==",
-                description: "Artisanal beverages, specialty drinks, and snacks.",
-                terms: ["Must present valid GUTech ID"]
             }
         ];
 
-// Dynamic Card Rendering Function
-const grid = document.getElementById('business-grid');
+        // Dynamic Card Rendering Function
+        const grid = document.getElementById('business-grid');
 
-function renderCards(data) {
-    grid.innerHTML = data.map(item => `
-        <div class="card visible" data-category="${item.category}">
-            <div class="card-header">
-                <span class="category-tag">${item.categoryLabel}</span>
-                <img src="${item.logoImg}" alt="${item.name} Logo" class="business-logo-img">
-            </div>
-            <div class="card-body">
-                <div class="discount-badge">${item.discount}</div>
-                <h3>${item.name}</h3>
-                <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">
-                    ${item.description}
-                </p>
-                <div class="card-footer">
-                    <button class="btn btn-primary" onclick="openModal(${item.id})">
-                        Read Details
-                    </button>
-                    <a href="${item.instagram}" target="_blank" rel="noopener noreferrer" class="btn btn-instagram" aria-label="Instagram Page">
-                        <i class="fa-brands fa-instagram" style="font-size: 1.2rem;"></i>
-                    </a>
+        function renderCards(data) {
+            grid.innerHTML = data.map(item => `
+                <div class="card visible" data-category="${item.category}">
+                    <div class="card-header">
+                        <span class="category-tag">${item.categoryLabel}</span>
+                        <img src="${item.logoImg}" alt="${item.name} Logo" class="business-logo-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="discount-badge">${item.discount}</div>
+                        <h3>${item.name}</h3>
+                        <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">
+                            ${item.description}
+                        </p>
+                        <div class="card-footer">
+                            <button class="btn btn-primary" onclick="openModal(${item.id})">
+                                Read Details
+                            </button>
+                            <a href="${item.instagram}" target="_blank" rel="noopener noreferrer" class="btn btn-instagram" aria-label="Instagram Page">
+                                <i class="fa-brands fa-instagram" style="font-size: 1.2rem;"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    `).join('');
-}
+            `).join('');
+        }
 
         // Initialize Render
         renderCards(businessData);
