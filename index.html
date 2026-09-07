@@ -1,295 +1,976 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUTech Campus Perks | Community Service Club</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* CSS VARIABLES & THEMING */
+        :root {
+            --primary: #1A365D;      /* Professional Deep Navy */
+            --accent: #2563EB;       /* Vibrant Electric Blue */
+            --accent-hover: #1D4ED8;
+            --gold: #D97706;         /* Highlight/Tag Accent */
+            --bg-light: #F8FAFC;
+            --surface: #FFFFFF;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --border: #E2E8F0;
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-<title>Mz Line</title>
-
-<link rel="stylesheet" href="index.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-<style>
-.language-toggle{
-    cursor:pointer;
-    font-size:22px;
-    color:#21473a;
-    transition:.3s;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+.brand-logos {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    max-height: 50px; /* Limits the max height of the brand area */
 }
-.language-toggle:hover{
-    transform:scale(1.15);
-    color:#000;
-}
-</style>
 
+.header-logo {
+    height: 40px;        /* Forces a clean, fixed height */
+    width: auto;         /* Automatically keeps the correct proportions */
+    max-width: 150px;    /* Prevents wide logos from stretching across the screen */
+    object-fit: contain; /* Ensures the logo isn't squished or stretched */
+    display: block;
+}
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logos {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        /* Placeholder styles for primary entity logos */
+        .logo-box {
+            height: 48px;
+            padding: 0 12px;
+            background: #EDF2F7;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--primary);
+            border: 1px dashed #CBD5E1;
+        }
+
+        .logo-box img {
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .divider {
+            width: 1px;
+            height: 28px;
+            background-color: var(--border);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* FILTER TABS */
+        .controls-section {
+            max-width: 1200px;
+            margin: 0 auto 2.5rem;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            background: var(--surface);
+            padding: 0.5rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border);
+        }
+
+        .filter-btn {
+            border: none;
+            background: transparent;
+            padding: 0.625rem 1.25rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* BUSINESS GRID */
+        .offers-section {
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+            padding: 0 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.07);
+        }
+
+        .card-header {
+            position: relative;
+            height: 180px;
+            background: #F1F5F9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Card Logo Image Formatting */
+.business-logo-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    object-fit: contain;
+    padding: 6px;
+    border: 1px solid var(--border);
+}
+
+        .category-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(4px);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-body h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: #FEF3C7;
+            color: var(--gold);
+            font-weight: 800;
+            font-size: 1.1rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn {
+            padding: 0.625rem 1rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            flex-grow: 1;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-instagram {
+            background-color: #FDF2F8;
+            color: #DB2777;
+            width: 42px;
+            height: 42px;
+            padding: 0;
+            border-radius: var(--radius-md);
+        }
+
+        .btn-instagram:hover {
+            background-color: #FCE7F3;
+        }
+
+        /* MODAL */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-card {
+            background: var(--surface);
+            width: 90%;
+            max-width: 500px;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            position: relative;
+            transform: scale(0.9);
+            transition: var(--transition);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: var(--bg-light);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .modal-terms {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.875rem;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-
-<div class="logo">
-<img src="images/logo.png">
-<span>Mz</span>
-</div>
-
-<nav>
-<a href="#" id="navShop">Shop</a>
-<a href="#" id="navCollections">Collections</a>
-<a href="#" id="navNew">New Arrivals</a>
-<a href="#" id="navDeals">Deals</a>
-<a href="#" id="navAbout">About</a>
-</nav>
-
-<div class="icons">
-<div class="language-toggle" onclick="toggleLanguage()">
-    <i class="fa-solid fa-language"></i>
-</div>
-<i class="fa-solid fa-magnifying-glass"></i>
-<i class="fa-regular fa-user"></i>
-<i class="fa-solid fa-bag-shopping"></i>
-</div>
-
+   <header>
+    <div class="nav-container">
+        <div class="brand-logos">
+            <img src="GUtech_logo.png" alt="GUTech Logo" class="header-logo">
+            <div class="divider"></div>
+            <img src="csc-logo.png" alt="Community Service Club Logo" class="header-logo">
+        </div>
+        <span style="font-weight: 700; font-size: 0.85rem; color: var(--accent); background: #EFF6FF; padding: 4px 12px; border-radius: 20px;">
+            Semester Perks
+        </span>
+    </div>
 </header>
 
+    <section class="hero">
+        <div class="hero-badge">
+            <i class="fa-solid fa-sparkles"></i> Welcoming Fall Semester
+        </div>
+        <h1>Exclusive Deals for GUTech Students & Staff</h1>
+        <p>
+            The Community Service Club has partnered with top local businesses to offer you exclusive discounts and perks. Show your GUTech ID at checkout to enjoy!
+        </p>
+    </section>
 
-<section class="hero">
-
-<div class="left">
-
-<p class="collection" id="collectionText">NEW SEASON COLLECTION</p>
-
-<h1 id="heroTitle">
-Live Beautifully.<br>
-<span>Shop Effortlessly.</span>
-</h1>
-
-<p class="description" id="heroDescription">
-Curated styles, quality you love,
-delivered to your door.
-</p>
-
-<a href="#" class="button" id="shopButton">
-Shop Now
-<i class="fa-solid fa-arrow-right"></i>
-</a>
-
-<div class="benefits">
-
-<div>
-<div class="icon yellow">
-<i class="fa-solid fa-truck"></i>
-</div>
-<h4 id="shippingTitle">Free Shipping</h4>
-<p id="shippingText">Orders over 50 OMR</p>
-</div>
-
-<div>
-<div class="icon green">
-<i class="fa-solid fa-shield"></i>
-</div>
-<h4 id="paymentTitle">Secure Payment</h4>
-<p id="paymentText">100% Protected</p>
-</div>
-
-</div>
-
-</div>
-
-
-<div class="right">
-
-<div class="circle"></div>
-<div class="leaf leaf1"></div>
-<div class="leaf leaf2"></div>
-
-<img src="images/model.png" class="model">
-
-<div class="card">
-<img src="images/model.png">
-<h3 id="cardProduct">Silken Blossom Maxi Dress</h3>
-<p id="cardPrice">OMR 25.00</p>
-<button id="cardButton">Add to Cart</button>
-</div>
-
-</div>
-
-</section>
-
-<section class="products-section">
-
-    <div class="section-header">
-        <h2 id="arrivalTitle">New Arrivals</h2>
-        <a href="#" id="viewAll">View All →</a>
+    <div class="controls-section">
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All Offers</button>
+            <button class="filter-btn" data-filter="cafes">Cafes & Dining</button>
+            <button class="filter-btn" data-filter="lifestyle">Lifestyle & Fitness</button>
+            <button class="filter-btn" data-filter="services">Services & Retail</button>
+        </div>
     </div>
 
-    <div class="product-grid">
+    <main class="offers-section">
+        <div class="grid" id="business-grid">
+            </div>
+    </main>
 
-        <!-- Product 1 -->
-        <div class="product-card">
-            <img src="images/dress1.png" alt="Elegant Dress">
-            <div class="product-info">
-                <h3 id="prod1Name">Silken Blossom Maxi Dress</h3>
-                <p class="price" id="prod1Price">OMR 17.000</p>
-                <div class="product-buttons">
-                    <a href="dress1.html" class="details-btn" id="prod1Details">More Details</a>
-                    <a href="https://www.instagram.com/_bymznx" class="order-btn" id="prod1Order">Order Now</a>
-                </div>
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-card">
+            <button class="close-modal" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="discount-badge" id="modal-discount">20% OFF</div>
+            <h2 id="modal-title" style="margin-bottom: 0.5rem; color: var(--primary);">Business Name</h2>
+            <p id="modal-desc" style="color: var(--text-muted); font-size: 0.95rem;">Full offer description goes here.</p>
+            
+            <div class="modal-terms">
+                <strong><i class="fa-solid fa-circle-info"></i> Terms & Conditions:</strong>
+                <ul id="modal-terms-list" style="margin-top: 0.5rem; padding-left: 1.25rem;">
+                    </ul>
             </div>
         </div>
-
-        <!-- Product 2 -->
-        <div class="product-card">
-            <img src="images/dress2.png">
-            <div class="product-info">
-                <h3 id="prod2Name">Rosé Bloom Silk Dress</h3>
-                <p class="price" id="prod2Price">OMR 17.000</p>
-                <div class="product-buttons">
-                    <a href="dress2.html" class="details-btn" id="prod2Details">More Details</a>
-                    <a href="https://www.instagram.com/_bymznx" class="order-btn" id="prod2Order">Order Now</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="product-card">
-            <img src="images/dress3.png">
-            <div class="product-info">
-                <h3 id="prod3Name">Mauve Serenity Silk‑Crape Gown</h3>
-                <p class="price" id="prod3Price">OMR 18.000</p>
-                <div class="product-buttons">
-                    <a href="dress3.html" class="details-btn" id="prod3Details">More Details</a>
-                    <a href="https://www.instagram.com/_bymznx" class="order-btn" id="prod3Order">Order Now</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 4 -->
-        <div class="product-card">
-            <img src="images/dress4.png">
-            <div class="product-info">
-                <h3 id="prod4Name">Ivory Charm Crape Dress</h3>
-                <p class="price" id="prod4Price">OMR 19.000</p>
-                <div class="product-buttons">
-                    <a href="dress4.html" class="details-btn" id="prod4Details">More Details</a>
-                    <a href="https://www.instagram.com/_bymznx" class="order-btn" id="prod4Order">Order Now</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 5 -->
-        <div class="product-card">
-            <img src="images/dress5.png">
-            <div class="product-info">
-                <h3 id="prod5Name">Silken Charm Skirt</h3>
-                <p class="price" id="prod5Price">OMR 8.000</p>
-                <div class="product-buttons">
-                    <a href="dress5.html" class="details-btn" id="prod5Details">More Details</a>
-                    <a href="https://www.instagram.com/_bymznx" class="order-btn" id="prod5Order">Order Now</a>
-                </div>
-            </div>
-        </div>
-        <!-- Product 6 -->
-        <div class="product-card">
-            <img src="images/dress6.png">
-            <div class="product-info">
-                <h3 id="prod5Name">Silken Charm Set</h3>
-                <p class="price" id="prod5Price">OMR 20.000</p>
-                <div class="product-buttons">
-                    <a href="dress6.html" class="details-btn" id="prod5Details">More Details</a>
-                    <a href="https://www.instagram.com/_bymznx" class="order-btn" id="prod5Order">Order Now</a>
-                </div>
-            </div>
-        </div>
-        <!-- Product 7 -->
-        <div class="product-card">
-            <img src="images/dress7.png">
-            <div class="product-info">
-                <h3 id="prod5Name">Golden Meadow Crape Dress</h3>
-                <p class="price" id="prod5Price">OMR 21.000</p>
-                <div class="product-buttons">
-                    <a href="dress7.html" class="details-btn" id="prod5Details">More Details</a>
-                    <a href="https://www.instagram.com/_bymznx" class="order-btn" id="prod5Order">Order Now</a>
-                </div>
-            </div>
-        </div>
-
     </div>
 
-</section>
+    <footer>
+        <p>&copy; 2026 Community Service Club — GUTech. All Rights Reserved.</p>
+    </footer>
 
-<script>
-let arabic = false;
+    <script>
+        // Sample Data Structure (Replace or update with full data tomorrow)
+       // Updated Business Data with Provided Logos & Links
+const businessData = [
+            {
+                id: 1,
+                name: "La Vie Beauty Salon",
+                category: "beauty",
+                categoryLabel: "Beauty & Spa",
+                discount: "Exclusive Offer",
+                logoImg: "lavie-logo.jpeg",
+                instagram: "https://www.instagram.com/laviebeauty.om?igsi=Mzk5anptZTVkamFl",
+                description: "Premier beauty salon offering specialized hair, skin, and nail treatments.",
+                terms: ["Must present valid GUTech ID", "Prior appointment required"]
+            },
+            {
+                id: 2,
+                name: "Luxan Coffee & Bakery",
+                category: "cafes",
+                categoryLabel: "Cafes & Dining",
+                discount: "Exclusive Offer",
+                logoImg: "luxan-logo.jpeg",
+                instagram: "https://www.instagram.com/luxancafe?igsi=MWdha21sZW44N2plNw==",
+                description: "Specialty coffee and freshly baked artisanal goods.",
+                terms: ["Must present valid GUTech ID", "Valid on dine-in and takeaway"]
+            },
+            {
+                id: 3,
+                name: "The Choco Heaven",
+                category: "cafes",
+                categoryLabel: "Cafes & Dining",
+                discount: "Exclusive Offer",
+                logoImg: "choco-heaven-logo.jpeg",
+                instagram: "https://www.instagram.com/the_choco_heaven.om?igsi=MWxjYXNzc2JmOTZlcA==",
+                description: "Decadent chocolate treats, desserts, and sweet snacks.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 4,
+                name: "Lunar Couture",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "Exclusive Offer",
+                logoImg: "lunar-couture-logo.jpeg",
+                instagram: "https://www.instagram.com/lunar__couture?igsi=c3kxcml5ZnNscjN3",
+                description: "Elegant bespoke couture and modern fashion designs.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 5,
+                name: "Butter & Blooms",
+                category: "lifestyle",
+                categoryLabel: "Lifestyle & Gifts",
+                discount: "Exclusive Offer",
+                logoImg: "butter-blooms-logo.jpeg",
+                instagram: "https://www.instagram.com/butterblooms.om?igsi=MThiOHhjNnp6NXZwcw==",
+                description: "Custom floral arrangements and luxury boutique treats.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 6,
+                name: "Mamitoo",
+                category: "fashion",
+                categoryLabel: "Fashion & Apparel",
+                discount: "Exclusive Offer",
+                logoImg: "mamitoo-logo.jpeg",
+                instagram: "https://www.instagram.com/mamitoo.om?igsi=ajFrbXl6ZWowcmUz",
+                description: "Stylish apparel and contemporary clothing collection.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 7,
+                name: "Shalla Line Abaya",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "Exclusive Offer",
+                logoImg: "shalla-logo.jpeg",
+                instagram: "https://www.instagram.com/shalla_line.abaya?igsi=MXRhZHFzb3I4amFpMg==",
+                description: "Modern abayas featuring high-quality fabrics and unique tailoring.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 8,
+                name: "Doganza",
+                category: "cafes",
+                categoryLabel: "Cafes & Dining",
+                discount: "Exclusive Offer",
+                logoImg: "doganza-logo.png",
+                instagram: "https://www.instagram.com/doganza?igsi=MTVxNmExMXMyd2Zmbw==",
+                description: "Gourmet burgers, hotdogs, and quick bites.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 9,
+                name: "Dress Me",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "OMR 2 OFF",
+                logoImg: "dressme-logo.png",
+                instagram: "https://www.instagram.com/dressme.om?igsi=MWo4bzAwazNvM2dkMw==",
+                description: "Enjoy OMR 2 off every abaya.",
+                terms: ["Must present valid GUTech ID", "Discount applies per abaya"]
+            },
+            {
+                id: 10,
+                name: "Hint Oman",
+                category: "cafes",
+                categoryLabel: "Cafes & Dining",
+                discount: "500 Baisa OFF",
+                logoImg: "hint-logo.jpeg",
+                instagram: "https://www.instagram.com/hint_oman?igsi=MTg3OWQ4bHU5NTl6ag==",
+                description: "Enjoy 500 Baisa off every box of chocolates.",
+                terms: ["Must present valid GUTech ID", "Applies to chocolate boxes"]
+            },
+            {
+                id: 11,
+                name: "Film Cafe",
+                category: "cafes",
+                categoryLabel: "Cafes & Dining",
+                discount: "15% OFF",
+                logoImg: "filmcafe-logo.png",
+                instagram: "https://www.instagram.com/filmcafe.om?igsi=MXU5dzRpZWhpeG96bA==",
+                description: "Specialty coffee and cafe drinks with cinematic vibes.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 12,
+                name: "Lava Gym",
+                category: "fitness",
+                categoryLabel: "Fitness & Wellness",
+                discount: "Special Rates",
+                logoImg: "lavagym-logo.jpeg",
+                instagram: "https://www.instagram.com/lava_gym.om?igsi=MTF5bW1oZG50djRhMw==",
+                description: "Students: OMR 16/month | Staff: OMR 18/month. Includes unlimited access, gym classes, and all machines.",
+                terms: ["Must present valid GUTech ID", "Applies to monthly subscriptions"]
+            },
+            {
+                id: 13,
+                name: "Noirea Line",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "OMR 4 OFF",
+                logoImg: "noirea-logo.jpeg",
+                instagram: "https://www.instagram.com/noirea._line?igsi=cjBxdHdpdGVrc3l3",
+                description: "OMR 4 off every abaya.",
+                terms: ["Must present valid GUTech ID", "Applies to each abaya purchased"]
+            },
+            {
+                id: 14,
+                name: "Athera",
+                category: "fitness",
+                categoryLabel: "Fitness & Beauty",
+                discount: "15% OFF & Free Drinks",
+                logoImg: "athera-logo.png",
+                instagram: "https://www.instagram.com/athera.om?igsi=MWpncW9kZnppc3l0ZQ==",
+                description: "15% off Reformer, Aerial & Mat Pilates, 15% off Hair, Nails, Massage & Facial Services. Healthy Bar stamp card: 10th drink is FREE!",
+                terms: ["Must present valid GUTech ID", "Stamp card valid at Healthy Bar"]
+            },
+            {
+                id: 15,
+                name: "Areej Line",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "15% OFF",
+                logoImg: "areej-logo.jpeg",
+                instagram: "https://www.instagram.com/areej__line?igsi=cWY3dDY0ZDRnbmls",
+                description: "Exclusive collection of abayas and women's fashion.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 16,
+                name: "Tasha Beauty Salon",
+                category: "beauty",
+                categoryLabel: "Beauty & Spa",
+                discount: "20% OFF",
+                logoImg: "tasha-logo.png",
+                instagram: "https://www.instagram.com/tasha.beautysalon?igsi=Zmo4NWUxbGU0dnI5",
+                description: "Professional hair styling, nail care, and beauty treatments.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 17,
+                name: "MA Luxury",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "OMR 1 OFF",
+                logoImg: "maluxury-logo.jpeg",
+                instagram: "https://www.instagram.com/ma.luxury.om?igsi=aGRhZnd2ZDBnc3Zl",
+                description: "OMR 1 off every abaya.",
+                terms: ["Must present valid GUTech ID", "Applies per item"]
+            },
+            {
+                id: 18,
+                name: "Le Cloaks",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "10% OFF",
+                logoImg: "lecloaks-logo.jpeg",
+                instagram: "https://www.instagram.com/lecloaks?igsi=OTd0bTR5cWR4empv",
+                description: "Contemporary cloaks and modern abaya designs.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 19,
+                name: "Meem Spa",
+                category: "beauty",
+                categoryLabel: "Beauty & Spa",
+                discount: "Up to 40% OFF",
+                logoImg: "meemspa-logo.jpeg",
+                instagram: "https://www.instagram.com/meem_.spa?igsi=MW9vem14NHVhOHY3MA==",
+                description: "25% off services under OMR 25, 40% off services over OMR 25, and 10% off selected salon products.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 20,
+                name: "Miznar Abaya",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "OMR 3 OFF",
+                logoImg: "miznar-logo.jpeg",
+                instagram: "https://www.instagram.com/miznar_abaya?igsi=cGR3b2t1ZnRpZHM5",
+                description: "OMR 3 off every abaya.",
+                terms: ["Must present valid GUTech ID", "Applies per abaya"]
+            },
+            {
+                id: 21,
+                name: "AH Line",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "15% OFF",
+                logoImg: "ahline-logo.jpeg",
+                instagram: "https://www.instagram.com/ah___line?igsi=dWYyc3gycXJyam93",
+                description: "Stylish tailored abayas and fashion pieces.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 22,
+                name: "Zona Spa",
+                category: "beauty",
+                categoryLabel: "Beauty & Spa",
+                discount: "25% OFF",
+                logoImg: "zonaspa-logo.jpeg",
+                instagram: "https://www.instagram.com/zonaspa.oman?igsi=MWQ3bXVjd3RkZW1wYQ==",
+                description: "Relaxing massage, body treatments, and spa services.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 23,
+                name: "Kair Salon",
+                category: "beauty",
+                categoryLabel: "Beauty & Spa",
+                discount: "10% OFF",
+                logoImg: "kair-logo.jpeg",
+                instagram: "https://www.instagram.com/kair.salon?igsi=MW83d3dza3Bic2Fndg==",
+                description: "Specialized haircare and styling services.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 24,
+                name: "Rif3a Collection",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "OMR 3 OFF + Free Delivery",
+                logoImg: "rif3a-logo.png",
+                instagram: "https://www.instagram.com/rif3a_collection?igsi=MTkzNDNicXY1dGNsNw==",
+                description: "OMR 3 off every abaya plus FREE delivery for up to 3 abayas anywhere in Oman!",
+                terms: ["Must present valid GUTech ID", "Free delivery capped at 3 abayas"]
+            },
+            {
+                id: 25,
+                name: "SHS Design",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "OMR 2 OFF",
+                logoImg: "shsdesign-logo.jpeg",
+                instagram: "https://www.instagram.com/_shsdesign?igsi=dGNwcmR4NGZ4ZXZ0",
+                description: "OMR 2 off every abaya.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 26,
+                name: "MF Line",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "10% OFF",
+                logoImg: "mfline-logo.jpeg",
+                instagram: "https://www.instagram.com/mflinee?igsi=YnR5NmRqdTc5cDB1",
+                description: "Modern and traditional abaya collections.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 27,
+                name: "Seera Collection",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "OMR 2 OFF",
+                logoImg: "seera-logo.jpeg",
+                instagram: "https://www.instagram.com/seera.collection_?igsi=cDE2anZpam9xYmx1",
+                description: "OMR 2 off every abaya.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 28,
+                name: "Loni Abaya",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "OMR 3 OFF",
+                logoImg: "loni-logo.jpeg",
+                instagram: "https://www.instagram.com/loni.abaya?igsi=MXFpN2cya3Rmcmhpbw==",
+                description: "OMR 3 off every abaya.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 29,
+                name: "Ever Cafe",
+                category: "cafes",
+                categoryLabel: "Cafes & Dining",
+                discount: "15% OFF",
+                logoImg: "evercafe-logo.png",
+                instagram: "https://www.instagram.com/evercafe.oman?igsi=bjA4cnNwNGJxcXo3",
+                description: "15% discount — Bawshar branch only.",
+                terms: ["Must present valid GUTech ID", "Valid at Bawshar branch only"]
+            },
+            {
+                id: 30,
+                name: "The Beauty Co.",
+                category: "beauty",
+                categoryLabel: "Beauty & Spa",
+                discount: "15% OFF",
+                logoImg: "beautyco-logo.jpeg",
+                instagram: "https://www.instagram.com/thebeautyco.om?igsi=MWU1aHF0MTB2NGVwaA==",
+                description: "Luxury beauty, nails, and skincare treatments.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 31,
+                name: "Berrlla",
+                category: "fashion",
+                categoryLabel: "Fashion & Apparel",
+                discount: "10% OFF",
+                logoImg: "berrlla-logo.jpeg",
+                instagram: "https://www.instagram.com/berrlla.om?igsi=MTJvaDh0ZDZ0cHF4dA==",
+                description: "Trendy apparel and women's fashion.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 32,
+                name: "Mao Ice",
+                category: "cafes",
+                categoryLabel: "Cafes & Dining",
+                discount: "25% OFF",
+                logoImg: "maoice-logo.png",
+                instagram: "https://www.instagram.com/maoice25?igsi=anpnZWlxbWljZDI1",
+                description: "Refreshing ice creams, drinks, and desserts.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 33,
+                name: "Rolisa Abaya",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "15% OFF",
+                logoImg: "rolisa-logo.jpeg",
+                instagram: "https://www.instagram.com/rolisaabaya?igsi=MWdid29pdWV2bGE5Ng==",
+                description: "Elegant tailored abayas for all occasions.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 34,
+                name: "Aseen Line",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "OMR 2 OFF",
+                logoImg: "aseen-logo.jpeg",
+                instagram: "https://www.instagram.com/aseenline?igsi=dG0wdHE4dnV5YXNk",
+                description: "OMR 2 off every abaya.",
+                terms: ["Must present valid GUTech ID"]
+            },
+            {
+                id: 35,
+                name: "Cheezy Cake",
+                category: "cafes",
+                categoryLabel: "Cafes & Dining",
+                discount: "15% OFF",
+                logoImg: "cheezycake-logo.jpeg",
+                instagram: "https://www.instagram.com/cheezycake_om?igsi=MTQwMTdwczN4dHgxMg==",
+                description: "15% off your order. University delivery available for OMR 1.",
+                terms: ["Must present valid GUTech ID", "Delivery fee OMR 1 for campus"]
+            },
+            {
+                id: 36,
+                name: "Aljawhara Cosmetics",
+                category: "beauty",
+                categoryLabel: "Beauty & Cosmetics",
+                discount: "15% OFF",
+                logoImg: "aljawhara-logo.jpeg",
+                instagram: "https://www.instagram.com/aljawhara.cosmetics?igsi=NXljNnNtYzg3NWZ5",
+                description: "15% off total order. Use promo code: AUG24. Shop online or via WhatsApp: 71102345.",
+                terms: ["Must use promo code: AUG24", "Valid online and WhatsApp orders"]
+            },
+            {
+                id: 37,
+                name: "RK Line",
+                category: "fashion",
+                categoryLabel: "Fashion & Abayas",
+                discount: "OMR 2 OFF",
+                logoImg: "rkline-logo.jpeg",
+                instagram: "https://www.instagram.com/rk__line?igsi=YXExbXg1d2x2N2hq",
+                description: "Enjoy 2 OMR OFF on every abaya available at the store!",
+                terms: ["Must present valid GUTech ID", "Valid on all store abayas"]
+            },
+            {
+                id: 38,
+                name: "Azal Collection",
+                category: "lifestyle",
+                categoryLabel: "Lifestyle & Perfumes",
+                discount: "Special Perfume Deal",
+                logoImg: "azal-logo.jpeg",
+                instagram: "https://www.instagram.com/azal.colllection?igsi=MWN4amttamtnczE0cw==",
+                description: "Perfumes originally priced at OMR 12 are now OMR 10, and perfumes priced at OMR 14 are now OMR 12.",
+                terms: ["Exclusive price for GUTech students & staff"]
+            },
+            {
+                id: 39,
+                name: "Lubn",
+                category: "cafes",
+                categoryLabel: "Cafes & Dining",
+                discount: "20% OFF",
+                logoImg: "lubn-logo.jpeg",
+                instagram: "https://www.instagram.com/lubn.om?igsi=MXVreHFkMmd6MnV6bg==",
+                description: "Artisanal beverages, specialty drinks, and snacks.",
+                terms: ["Must present valid GUTech ID"]
+            }
+        ];
 
-function toggleLanguage(){
-    arabic = !arabic;
+// Dynamic Card Rendering Function
+const grid = document.getElementById('business-grid');
 
-    if(arabic){
-        document.documentElement.lang="ar";
-        document.body.dir="rtl";
-
-        document.getElementById("navShop").innerHTML="المتجر";
-        document.getElementById("navCollections").innerHTML="المجموعات";
-        document.getElementById("navNew").innerHTML="وصل حديثاً";
-        document.getElementById("navDeals").innerHTML="العروض";
-        document.getElementById("navAbout").innerHTML="من نحن";
-
-        document.getElementById("collectionText").innerHTML="تشكيلة الموسم الجديد";
-
-        document.getElementById("heroTitle").innerHTML=
-        "تألقي بأناقة.<br><span>تسوقي بكل سهولة.</span>";
-
-        document.getElementById("heroDescription").innerHTML=
-        "فساتين وتنانير مصممة بعناية لتمنحك الأناقة والرقي في كل مناسبة.";
-
-        document.getElementById("shopButton").innerHTML=
-        'تسوق الآن <i class="fa-solid fa-arrow-left"></i>';
-
-        document.getElementById("shippingTitle").innerHTML="شحن مجاني";
-        document.getElementById("shippingText").innerHTML="للطلبات فوق 50 ريال";
-
-        document.getElementById("paymentTitle").innerHTML="دفع آمن";
-        document.getElementById("paymentText").innerHTML="حماية 100%";
-
-        document.getElementById("arrivalTitle").innerHTML="وصل حديثاً";
-    }
-    else{
-        document.documentElement.lang="en";
-        document.body.dir="ltr";
-
-        document.getElementById("navShop").innerHTML="Shop";
-        document.getElementById("navCollections").innerHTML="Collections";
-        document.getElementById("navNew").innerHTML="New Arrivals";
-        document.getElementById("navDeals").innerHTML="Deals";
-        document.getElementById("navAbout").innerHTML="About";
-
-        document.getElementById("collectionText").innerHTML="NEW SEASON COLLECTION";
-
-        document.getElementById("heroTitle").innerHTML=
-        'Live Beautifully.<br><span>Shop Effortlessly.</span>';
-
-        document.getElementById("heroDescription").innerHTML=
-        "Curated styles, quality you love, delivered to your door.";
-
-        document.getElementById("shopButton").innerHTML=
-        'Shop Now <i class="fa-solid fa-arrow-right"></i>';
-
-        document.getElementById("shippingTitle").innerHTML="Free Shipping";
-        document.getElementById("shippingText").innerHTML="Orders over 50 OMR";
-
-        document.getElementById("paymentTitle").innerHTML="Secure Payment";
-        document.getElementById("paymentText").innerHTML="100% Protected";
-
-        document.getElementById("arrivalTitle").innerHTML="New Arrivals";
-    }
+function renderCards(data) {
+    grid.innerHTML = data.map(item => `
+        <div class="card visible" data-category="${item.category}">
+            <div class="card-header">
+                <span class="category-tag">${item.categoryLabel}</span>
+                <img src="${item.logoImg}" alt="${item.name} Logo" class="business-logo-img">
+            </div>
+            <div class="card-body">
+                <div class="discount-badge">${item.discount}</div>
+                <h3>${item.name}</h3>
+                <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1rem;">
+                    ${item.description}
+                </p>
+                <div class="card-footer">
+                    <button class="btn btn-primary" onclick="openModal(${item.id})">
+                        Read Details
+                    </button>
+                    <a href="${item.instagram}" target="_blank" rel="noopener noreferrer" class="btn btn-instagram" aria-label="Instagram Page">
+                        <i class="fa-brands fa-instagram" style="font-size: 1.2rem;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    `).join('');
 }
-</script>
+
+        // Initialize Render
+        renderCards(businessData);
+
+        // Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                if (filter === 'all') {
+                    renderCards(businessData);
+                } else {
+                    const filtered = businessData.filter(item => item.category === filter);
+                    renderCards(filtered);
+                }
+            });
+        });
+
+        // Modal Logic
+        const modal = document.getElementById('modal-overlay');
+        const closeModalBtn = document.getElementById('close-modal');
+
+        function openModal(id) {
+            const item = businessData.find(b => b.id === id);
+            if (!item) return;
+
+            document.getElementById('modal-title').textContent = item.name;
+            document.getElementById('modal-discount').textContent = item.discount;
+            document.getElementById('modal-desc').textContent = item.description;
+            
+            const termsList = document.getElementById('modal-terms-list');
+            termsList.innerHTML = item.terms.map(term => `<li>${term}</li>`).join('');
+
+            modal.classList.add('active');
+        }
+
+        closeModalBtn.addEventListener('click', () => modal.classList.remove('active'));
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('active');
+        });
+
+        // Scroll Animation (Intersection Observer)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card').forEach(card => observer.observe(card));
+    </script>
 </body>
 </html>
